@@ -1,0 +1,6 @@
+docker-compose.yml
+.venv
+.env
+static
+.dockerignore
+entrypoint.sh
