@@ -1,0 +1,126 @@
+<header class="main-header position-fixed w-100">
+    <div class="container">
+
+<nav class="navbar navbar-expand-xl py-0">
+            <div class="logo">
+                <a class="navbar-brand py-0 me-0" href="#">
+                    <!-- <img src="../assets/images/Creato-logo.svg" alt=""> -->
+                    <h3>Critic <span style="color: #F35C29;">tech</span></h3>
+                </a>
+            </div>
+            <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"
+               data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="ti ti-menu-2"></i>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}#about_us">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}#my_features">Features </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}#my_team">Team </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}#my_protfolio">Portfolio </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="openSignInWidget()">Sign In</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link d-none" id="signOutBtn" href="#" onclick="signOutUser()">Logout</a>
+                    </li>
+
+
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                        </li>
+                    {% endif %}
+
+
+
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Review</a>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li> -->
+
+
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-primary btn-hover-secondery text-capitalize "
+                       href="https://wa.me/919444020862?text=Hello%20I%27m%20interested%20in%20your%20services">contact
+                        us</a>
+                </div>
+            </div>
+        </nav>
+
+
+        </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <div class="logo">
+                <a class="navbar-brand py-0 me-0" href="#">
+                    <!-- <img src="../assets/images/Creato-logo.svg" alt=""> -->
+                    <h3>Critic <span style="color: #F35C29;">tech</span></h3>
+
+                </a>
+            </div>
+            <button type="button" class="btn-close text-reset  ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="ti ti-x"></i></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#about_us">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#my_features">Features </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#my_team">Team </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}#my_protfolio">Portfolio </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="signInBtn" href="#" onclick="openSignInWidget()">Sign In</a>
+                    <a class="nav-link d-none" id="signOutBtn" href="#" onclick="signOutUser()">Logout</a>
+                </li>
+
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Review</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li> -->
+            </ul>
+            <div class="login d-block align-items-center">
+                <a class="btn btn-primary text-capitalize w-100"
+                   href="https://wa.me/919444020862?text=Hello%20I%27m%20interested%20in%20your%20services">contact
+                    us</a>
+            </div>
+        </div>
+    </div>
+</header>

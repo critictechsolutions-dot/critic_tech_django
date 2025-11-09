@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: #222;
+    }
+
+    .login-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Left side */
+    .login-left {
+      flex: 1;
+      background: linear-gradient(135deg, #faf7ff 0%, #ffffff 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .login-left img {
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .login-left h2 {
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .login-left p {
+      font-size: 16px;
+      color: #444;
+      max-width: 400px;
+    }
+
+    .highlight {
+      color: #8a2be2;
+      font-weight: 600;
+    }
+
+    .signup-btn {
+      margin-top: 25px;
+      padding: 10px 30px;
+      border: 2px solid #8a2be2;
+      background: transparent;
+      color: #8a2be2;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .signup-btn:hover {
+      background: #8a2be2;
+      color: white;
+    }
+
+    /* Right side */
+    .login-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .login-form {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-form h2 {
+      text-align: left;
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    .forgot {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .forgot a {
+      color: #8a2be2;
+      text-decoration: none;
+    }
+
+    .forgot a:hover {
+      text-decoration: underline;
+    }
+
+    .login-btn {
+      background: #8a2be2;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #7328c9;
+    }
+
+    .agreement {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .agreement a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .agreement a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .login-container {
+        flex-direction: column;
+      }
+
+      .login-left {
+        padding: 20px;
+      }
+
+      .login-right {
+        padding: 30px 20px;
+      }
+    }
+
+    /* Inline Django Message (just above button) */
+.inline-message {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.inline-message .msg-icon {
+  font-size: 15px;
+}
+
+/* Message Types */
+.inline-message.success {
+  background: #eaf9f0;
+  border-left: 4px solid #2e7d32;
+  color: #256029;
+}
+
+.inline-message.error {
+  background: #fdecea;
+  border-left: 4px solid #f44336;
+  color: #8a1c1c;
+}
+
+.inline-message.warning {
+  background: #fff8e1;
+  border-left: 4px solid #ffa000;
+  color: #664d03;
+}
+
+.inline-message.info {
+  background: #e3f2fd;
+  border-left: 4px solid #1976d2;
+  color: #0d47a1;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+
+    <!-- Left Section -->
+    <div class="login-left">
+      <img src="{% static 'assets/own_img/login.png' %}" alt="Illustration" />
+      <h2>Create exceptional conversational experiences using</h2>
+      <p><span class="highlight">RCS</span> Business Messaging</p>
+      <a class="signup-btn" href="{% url 'login' %}">Log In</a>
+    </div>
+
+    <!-- Right Section -->
+    <div class="login-right">
+      <form class="login-form" method="post">
+          {% csrf_token %}
+        <h2>Login to Critic Tech</h2>
+
+        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+          {{ form.username }}
+
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+          {{ form.email }}
+
+        <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+            {{ form.password1 }}
+
+          <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+          {{ form.password2 }}
+
+              <!-- ✅ Django Message just above submit button -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="inline-message {% if message.tags %}{{ message.tags }}{% endif %}">
+          <span class="msg-icon">
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}❌{% endif %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}✅{% endif %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}ℹ️{% endif %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}⚠️{% endif %}
+          </span>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+        <button type="submit" class="login-btn">Login Now</button>
+
+        <div class="agreement">
+          By signing up, you agree to our
+          <a href="{% url 'terms_and_conditions' %}">Terms and Conditions</a> &
+          <a href="{% url 'privacy_policy' %}">Privacy Policy</a>.
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>

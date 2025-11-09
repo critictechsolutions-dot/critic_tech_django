@@ -1,0 +1,64 @@
+<script
+  async
+  crossorigin="anonymous"
+  data-clerk-publishable-key="pk_live_******"
+  src="https://******clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+  type="text/javascript"
+></script>
+
+<script>
+  window.addEventListener("load", async () => {
+    const signInBtn = document.getElementById("signInBtn");
+    const signOutBtn = document.getElementById("signOutBtn");
+
+    const initClerk = async () => {
+      if (!window.Clerk || typeof window.Clerk.load !== "function")
+        return setTimeout(initClerk, 100);
+
+      try {
+        await window.Clerk.load();
+
+        // --- Sign-in modal ---
+        window.openSignInWidget = () => {
+          window.Clerk.openSignIn({ afterSignInUrl: window.location.href });
+        };
+
+        // --- Sign-out function ---
+        window.signOutUser = async () => {
+          await window.Clerk.signOut();
+          toggleButtons(false);
+        };
+
+        // --- Toggle visibility ---
+        const toggleButtons = (isSignedIn) => {
+          if (isSignedIn) {
+            signInBtn?.classList.add("d-none");
+            signOutBtn?.classList.remove("d-none");
+          } else {
+            signOutBtn?.classList.add("d-none");
+            signInBtn?.classList.remove("d-none");
+          }
+        };
+
+        // --- Initial state ---
+        toggleButtons(!!window.Clerk.user);
+
+        // --- React to changes ---
+        window.Clerk.addListener(({ user }) => toggleButtons(!!user));
+      } catch (err) {
+        console.error("Clerk failed to initialize:", err);
+      }
+    };
+
+    initClerk();
+  });
+</script>
+
+<li class="nav-item">
+  <a class="nav-link" id="signInBtn" href="#" onclick="openSignInWidget()"
+    >Sign In</a
+  >
+  <a class="nav-link d-none" id="signOutBtn" href="#" onclick="signOutUser()"
+    >Logout</a
+  >
+</li>

@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critic Tech</title>
+    <link rel="stylesheet" href="{% static 'dist/css/iconfont/tabler-icons.css' %}">
+    <link rel="stylesheet" href="{% static './dist/css/style.css' %}">
+
+    
+{% block head %}
+	
+{% endblock %}
+
+</head>
+<body>
+
+{% block body %}
+	
+{% endblock %}
+
+
+<!------------------------------>
+<!-- Footer Section Start  -->
+<!------------------------------>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-4 col-xxl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="footer-logo-col">
+                    <!-- <a href="#"><img src="../assets/images/Creato-logo.svg"></a> -->
+                    <h3>Critic <span style="color: #F35C29;">tech</span></h3>
+
+                    <p class="copyrights fs-5 mb-0">Copyright @ <span id="autodate"></span></p>
+                    <ul class="social-icons list-unstyled mb-0 pl-0 d-flex align-items-center">
+                        <li><a href="#" class="rounded-circle"><img
+                                src="{% static './assets/images/footer/icon_facebook.svg' %}"><img
+                                src="../assets/images/footer/icon_facebook_white.svg"></a></li>
+                        <li><a href="#" class="rounded-circle"><img
+                                src="{% static './assets/images/footer/icon_twitter.svg' %}"><img
+                                src="../assets/images/footer/icon_twitter_white.svg"></a></li>
+                        <li><a href="#" class="rounded-circle"><img
+                                src="{% static './assets/images/footer/icon_google_plus.svg' %}"><img
+                                src="../assets/images/footer/icon_google_plus_white.svg"></a></li>
+                        <li><a href="#" class="rounded-circle"><img
+                                src="{% static './assets/images/footer/icon_linkdin.svg' %}"><img
+                                src="../assets/images/footer/icon_linkdin_white.svg"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xxl-3 col-lg-3 col-md-4 col-sm-12 col-12">
+                <h5 class="text-secondary fw-bold fs-4">Quick links</h5>
+                <ul class="list-unstyled mb-0 pl-0">
+                    <li><a href="#" class="text-capitalize fs-6 text-decoration-none">Home</a></li>
+                    <li><a href="#about_us" class="text-capitalize fs-6 text-decoration-none">about us</a></li>
+                    <li><a href="#my_features" class="text-capitalize fs-6 text-decoration-none">Features </a></li>
+                    <li><a href="#my_team" class="text-capitalize fs-6 text-decoration-none">Team </a></li>
+                    <li><a href="#my_protfolio" class="text-capitalize fs-6 text-decoration-none">Portfolio </a></li>
+                    <li><a href="{% url 'terms_and_conditions' %}" class="text-capitalize fs-6 text-decoration-none">terms and
+                        conditions</a></li>
+                    <li><a href="{% url 'privacy_policy' %}" class="text-capitalize fs-6 text-decoration-none">Privacy Policy</a></li>
+                    <!-- <li><a href="#" class="text-capitalize fs-6 text-decoration-none">Pricing</a></li> -->
+                </ul>
+            </div>
+            <div class="col-xxl-5 col-xxl-5 col-lg-5 col-md-8 col-sm-12 col-12">
+                <h5 class="text-secondary fw-bold fs-4">From the blog</h5>
+                <div class="blog mb-3">
+                    <p class="mb-0 fs-6">Discover the latest trends and tips in digital services, from web development
+                        to branding. We share practical insights to help your business grow online.</p>
+                    <!-- <p class="mt-2 fs-6">16 Mar,2021</p> -->
+                </div>
+                <div class="blog mb-3">
+                    <p class="mb-0 fs-6">Explore our expert opinions and success stories. Find inspiration and useful
+                        strategies to make the most out of your digital journey.</p>
+                    <!-- <p class="mt-2 fs-6">16 Mar,2021</p> -->
+                </div>
+                <div class="blog">
+                    <a href="https://wa.me/919444020862?text=Hello%20I%27m%20interested%20in%20your%20services"
+                       class="text-decoration-none text-primary text-capitalize fs-6">read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!------------------------------>
+<!-- Footer Section End  -->
+<!------------------------------>
+
+
+<!------------------------------>
+<!----------- Js Libs ---------->
+<!------------------------------>
+<script src="{% static './dist/js/jquery.min.js' %}"></script>
+<script src="{% static './dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static './dist/js/custom.js' %}"></script>
+
+
+</body>
+</html>
