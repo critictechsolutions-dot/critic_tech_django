@@ -5,7 +5,6 @@ from django.contrib.auth import logout as django_logout
 from django.shortcuts import render, redirect
 from .forms import *
 # Create your views here.
-@login_required
 def index(request):
     return render(request, 'index.html')
 
