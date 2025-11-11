@@ -1,7 +1,0 @@
-docker-compose.yml
-.venv
-.dockerignore
-entrypoint.sh
-.idea
-.env
-db.sqlite3
