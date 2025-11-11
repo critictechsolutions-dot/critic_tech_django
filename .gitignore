@@ -1,6 +1,7 @@
 docker-compose.yml
 .venv
-.env
 .dockerignore
 entrypoint.sh
 .idea
+.env
+db.sqlite3

@@ -103,10 +103,19 @@
                     <a class="nav-link" href="{% url 'index' %}#my_protfolio">Portfolio </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" id="signInBtn" href="#" onclick="openSignInWidget()">Sign In</a>
-                    <a class="nav-link d-none" id="signOutBtn" href="#" onclick="signOutUser()">Logout</a>
-                </li>
+
+                 {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                        </li>
+                    {% endif %}
 
 
                 <!-- <li class="nav-item">
