@@ -55,6 +55,7 @@ def privacy_policy(request):
 def contact(request):
     return render(request,"contact.html")
 
-
+def refund(request):
+    return render(request,"refund_cancellation.html")
 
 
